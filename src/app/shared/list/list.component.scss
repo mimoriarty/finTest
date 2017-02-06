@@ -1,0 +1,11 @@
+$bordes: #ccc;
+
+.list-container {
+    .list-item {
+        border-bottom: 1px solid $bordes;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+}

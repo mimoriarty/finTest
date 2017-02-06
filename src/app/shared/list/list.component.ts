@@ -5,7 +5,7 @@ import { Component, OnInit } from "@angular/core";
 @Component({
   selector: 'list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css'],
+  styleUrls: ['./list.component.scss'],
   providers: [ActionListService]
 })
 export class ListComponent implements OnInit {
@@ -14,16 +14,16 @@ export class ListComponent implements OnInit {
   constructor(private ActionListService: ActionListService) { }
 
   ngOnInit() {
-    /*this.ActionListService.load()
+    this.ActionListService.load()
         .subscribe(loadedActions => {
           loadedActions.forEach((actionObject, index) => {
             this.actionList.unshift(actionObject);
           });
-        });*/
-    this.ActionListService.load()
+        });
+    /*this.ActionListService.load()
       .forEach((actionObject, index) => {
         this.actionList.push(actionObject);
-      });
+      });*/
   }
 
 }

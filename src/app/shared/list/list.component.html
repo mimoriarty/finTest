@@ -1,4 +1,10 @@
 <h1>Listado de acciones</h1>
-<ul *ngFor="let action of actionList">
-  <li>{{action.name}}</li>
-</ul>
+<div class="list-container">
+  <div *ngFor="let action of actionList" class="list-item">
+    <p>{{action.name}}</p>
+    <p>
+      <span>divisa: {{action.currency}}</span>
+      <span>familia de riesgo: {{action.risk_family}}</span>
+    </p>
+  </div>
+</div>

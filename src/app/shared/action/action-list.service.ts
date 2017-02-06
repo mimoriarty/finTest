@@ -4,35 +4,42 @@ import { Observable } from "rxjs/Rx";
 import "rxjs/add/operator/map";
 
 import { Action } from "./action";
+import { Config } from "../../config";
 
 @Injectable()
 export class ActionListService {
+    constructor(private http: Http) {}
+
     load() {
-        let actionsFakeList = [
-            {
-                "id": 9756,
-                "name": "Jpmorgan Investment Funds - Global Macro Opportunities Fund A Acc",
-                "currency": "EUR",
-                "risk_family": "Balanced"
-            },
-            {
-                "id": 42736,
-                "name": "Allianz Fondsvorsorge 1977-1996 A Acc",
-                "currency": "EUR",
-                "risk_family": "Balanced"
-            }
-        ];
-        let actionList = [];
+        let headers = new Headers();
 
-        actionsFakeList.forEach((action) => {
-            actionList.push(new Action(
-                action.id,
-                action.name,
-                action.currency,
-                action.risk_family
-            ))
-        });
+        headers.append("Content-Type", Config.contentType);
+        headers.append("JsonStub-User-Key", Config.jsonStubUserKey);
+        headers.append("JsonStub-Project-Key", Config.jsonStubProjectKey);
+        return this.http.get(
+            Config.apiUrl,
+            { headers : headers }
+        )
+        .map((response) => response.json())
+        .map(data => {
+            let actionList = [];
 
-        return actionList;
+            data.forEach((action) => {
+                actionList.push(new Action(
+                    action.id,
+                    action.name,
+                    action.currency,
+                    action.risk_family
+                ));
+            });
+
+            return actionList;
+        })
+        .catch(this.handleErrors);
+    }
+
+    handleErrors(error) {
+        console.log(JSON.stringify(error));
+        return Observable.throw(error);
     }
 }
