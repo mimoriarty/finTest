@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* FONTS */
+@import url('https://fonts.googleapis.com/css?family=Lato:100');
+
+/* COLORS */
+$titles: #6d93bd;
+$main: #676767;
+
+/* MAIN STYLES */
+
+body {
+    color: $main;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    width: 100%;
+
+    .main-container {
+        margin: 0 auto;
+        padding: 0 10px;
+        max-width: 900px;
+    }
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.component-title,
+.lato {
+    font-family: 'Lato', sans-serif;
+}
+
+.component-title {
+    color: $titles;
+}
+
+.f-left {
+    float: left;
+}
+
+.f-right {
+    float: right;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* RESPONSIVE STYLES */
+
+@media (max-width: 1000px) {
+    body { 
+        font-size: medium;
+        margin: 0;
+        max-width: inherit;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        font-size: small;
+        margin: 0;
+        max-width: inherit;
+    }
+}

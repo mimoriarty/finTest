@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './shared/list/list.component';
+import { FilterList } from './filterList';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent
+    ListComponent,
+    FilterList
   ],
   imports: [
     BrowserModule,

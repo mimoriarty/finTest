@@ -14,16 +14,12 @@ export class ListComponent implements OnInit {
   constructor(private ActionListService: ActionListService) { }
 
   ngOnInit() {
-    this.ActionListService.load()
+    this.ActionListService
+        .load()
         .subscribe(loadedActions => {
           loadedActions.forEach((actionObject, index) => {
             this.actionList.unshift(actionObject);
           });
         });
-    /*this.ActionListService.load()
-      .forEach((actionObject, index) => {
-        this.actionList.push(actionObject);
-      });*/
   }
-
 }

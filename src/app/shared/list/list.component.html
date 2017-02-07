@@ -1,10 +1,23 @@
-<h1>Listado de acciones</h1>
-<div class="list-container">
-  <div *ngFor="let action of actionList" class="list-item">
-    <p>{{action.name}}</p>
-    <p>
-      <span>divisa: {{action.currency}}</span>
-      <span>familia de riesgo: {{action.risk_family}}</span>
-    </p>
-  </div>
-</div>
+<h1 class="component-title">Listado de acciones</h1>
+<p class="component-filter">
+  <span class="lato">Filtrar</span>
+  <input [(ngModel)]="query" type="text" />
+  <span class="leyend bold">*filtrado por divisa y riesgo</span>
+</p>
+<ul class="list-container">
+  <li *ngFor="let action of actionList | filterList:query" class="card clickable" id="{{action.id}}">
+    <p class="name">{{action.name}}</p>
+    <div class="property">
+      <p>
+        <span class="label lato">divisa</span>
+        <span class="value">{{action.currency}}</span>
+      </p>
+    </div>
+    <div class="property f-right">
+      <p>
+        <span class="label lato">familia de riesgo</span>
+        <span class="value">{{action.risk_family}}</span>
+      </p>
+    </div>
+  </li>
+</ul>

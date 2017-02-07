@@ -32,7 +32,7 @@ export class ActionListService {
                     action.risk_family
                 ));
             });
-
+            
             return actionList;
         })
         .catch(this.handleErrors);

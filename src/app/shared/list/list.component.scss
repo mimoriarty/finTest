@@ -1,11 +1,89 @@
-$bordes: #ccc;
+/* COLORS */
+$border: #ccc;
+$rules : #eee;
+$card-values: #e3eaf3;
 
-.list-container {
-    .list-item {
-        border-bottom: 1px solid $bordes;
+/* MAIN STYLES */
 
-        &:last-child {
-            border-bottom: 0;
+.card {
+    border: 1px solid $border;
+    border-radius: 12px;
+    margin-bottom: 5px;
+    padding: 8px 24px;
+
+    &:hover {
+        background-color: $card-values;
+
+        .property {
+            .value {
+                background-color: #fff;
+            }
         }
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .name {
+        border-bottom: 1px solid $rules;
+        margin-bottom: 2px;
+        padding-bottom: 10px;
+    }
+
+    .property {
+        display: inline-block;
+        font-size: .8em;
+        text-align: center;
+
+        .label {
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        p {
+
+            span {
+                display: block;
+            }
+        }
+
+        .value {
+            background-color: $card-values;
+            border-radius: 13px;
+            padding: 6px;
+        }
+    }
+}
+
+.component-filter {
+    margin-bottom: 30px;
+
+    input {
+        margin-left: 10px;
+    }
+
+    .leyend {
+        display: inline-block;
+        font-size: 10px;
+        margin-left: 4px;
+        position: relative;
+        top: 5px;
+        width: 80px;
+    }
+}
+
+
+/* RESPONSIVE STYLES */
+
+@media (max-width: 1000px) {
+    .card {
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 500px) {
+    .card {
+        padding: 0 12px;
     }
 }
