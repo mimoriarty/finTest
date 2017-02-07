@@ -1,7 +1,9 @@
 /* COLORS */
 $border: #ccc;
-$rules : #eee;
+$border-input: #5479c3;
+$card-back: #eaeff3;
 $card-values: #e3eaf3;
+$rules : #eee;
 
 /* MAIN STYLES */
 
@@ -12,7 +14,7 @@ $card-values: #e3eaf3;
     padding: 8px 24px;
 
     &:hover {
-        background-color: $card-values;
+        background-color: $card-back;
 
         .property {
             .value {
@@ -60,6 +62,9 @@ $card-values: #e3eaf3;
     margin-bottom: 30px;
 
     input {
+        border: 0;
+        border-bottom: 1px solid $border-input;
+        cursor: text;
         margin-left: 10px;
     }
 
@@ -68,8 +73,7 @@ $card-values: #e3eaf3;
         font-size: 10px;
         margin-left: 4px;
         position: relative;
-        top: 5px;
-        width: 80px;
+        top: 2px;
     }
 }
 

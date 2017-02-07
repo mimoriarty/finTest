@@ -1,4 +1,4 @@
-export class Action {
+export class Symbol {
     constructor(
         public id: number,
         public name: string,

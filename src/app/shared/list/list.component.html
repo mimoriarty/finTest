@@ -5,18 +5,18 @@
   <span class="leyend bold">*filtrado por divisa y riesgo</span>
 </p>
 <ul class="list-container">
-  <li *ngFor="let action of actionList | filterList:query" class="card clickable" id="{{action.id}}">
-    <p class="name">{{action.name}}</p>
+  <li *ngFor="let symbol of symbolList | filterList:query" class="card clickable" (click)="onSelected(symbol.id)">
+    <p class="name">{{symbol.name}}</p>
     <div class="property">
       <p>
         <span class="label lato">divisa</span>
-        <span class="value">{{action.currency}}</span>
+        <span class="value">{{symbol.currency}}</span>
       </p>
     </div>
     <div class="property f-right">
       <p>
         <span class="label lato">familia de riesgo</span>
-        <span class="value">{{action.risk_family}}</span>
+        <span class="value">{{symbol.risk_family}}</span>
       </p>
     </div>
   </li>

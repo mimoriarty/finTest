@@ -1,25 +1,29 @@
-import { Action } from '../action/action';
-import { ActionListService } from '../action/action-list.service';
+import { Symbol } from '../symbol/symbol';
+import { SymbolListService } from '../symbol/list.service';
 import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: 'list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  providers: [ActionListService]
+  providers: [SymbolListService]
 })
 export class ListComponent implements OnInit {
-  actionList: Array<Action> = [];
+  symbolList: Array<symbol> = [];
 
-  constructor(private ActionListService: ActionListService) { }
+  constructor(private SymbolListService: SymbolListService) { }
 
   ngOnInit() {
-    this.ActionListService
+    this.SymbolListService
         .load()
-        .subscribe(loadedActions => {
-          loadedActions.forEach((actionObject, index) => {
-            this.actionList.unshift(actionObject);
+        .subscribe(loadedsymbols => {
+          loadedsymbols.forEach((symbolObject, index) => {
+            this.symbolList.unshift(symbolObject);
           });
         });
+  }
+
+  onSelected() {
+    
   }
 }

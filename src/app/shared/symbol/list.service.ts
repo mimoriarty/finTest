@@ -3,11 +3,11 @@ import { Http, Headers } from "@angular/http";
 import { Observable } from "rxjs/Rx";
 import "rxjs/add/operator/map";
 
-import { Action } from "./action";
+import { Symbol } from "./symbol";
 import { Config } from "../../config";
 
 @Injectable()
-export class ActionListService {
+export class SymbolListService {
     constructor(private http: Http) {}
 
     load() {
@@ -22,18 +22,18 @@ export class ActionListService {
         )
         .map((response) => response.json())
         .map(data => {
-            let actionList = [];
+            let symbolList = [];
 
-            data.forEach((action) => {
-                actionList.push(new Action(
-                    action.id,
-                    action.name,
-                    action.currency,
-                    action.risk_family
+            data.forEach((symbol) => {
+                symbolList.push(new Symbol(
+                    symbol.id,
+                    symbol.name,
+                    symbol.currency,
+                    symbol.risk_family
                 ));
             });
             
-            return actionList;
+            return symbolList;
         })
         .catch(this.handleErrors);
     }
