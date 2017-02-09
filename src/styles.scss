@@ -3,9 +3,52 @@
 /* FONTS */
 @import url('https://fonts.googleapis.com/css?family=Lato:100');
 
+@font-face {
+  font-family: 'icomoon';
+  src:  url('assets/fonts/icomoon.eot?ijl65z');
+  src:  url('assets/fonts/icomoon.eot?ijl65z#iefix') format('embedded-opentype'),
+    url('assets/fonts/icomoon.ttf?ijl65z') format('truetype'),
+    url('assets/fonts/icomoon.woff?ijl65z') format('woff'),
+    url('assets/fonts/icomoon.svg?ijl65z#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-pencil:before {
+  content: "\e905";
+}
+
+.icon-bubble:before {
+  content: "\e96b";
+}
+
+.icon-bin:before {
+  content: "\e9ac";
+}
+
+.icon-arrow-left2:before {
+  content: "\ea40";
+}
+
 /* COLORS */
 $titles: #6d93bd;
 $main: #676767;
+$btn: #aaa;
 
 /* MAIN STYLES */
 
@@ -19,11 +62,31 @@ body {
         margin: 0 auto;
         padding: 0 10px;
         max-width: 900px;
+        position: relative;
     }
 }
 
 .bold {
     font-weight: 700;
+}
+
+.btn {
+    border: 1px solid $btn;
+    border-radius: 6px;
+    color: $btn;
+    cursor: pointer;
+    font-size: 9px;
+    padding: 4px;
+    text-transform: uppercase;
+
+    &.back {
+        position: absolute;
+        right: 10px;
+    }
+
+    .text {
+        font-size: 10px;
+    }
 }
 
 .clearfix {
@@ -49,6 +112,18 @@ body {
 
 .f-right {
     float: right;
+}
+
+.a-center {
+    text-align: center;
+}
+
+.a-left {
+    text-align: left;
+}
+
+.a-right {
+    text-align: right;
 }
 
 ul {

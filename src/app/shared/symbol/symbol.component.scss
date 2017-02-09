@@ -1,0 +1,28 @@
+/* COLORS */
+$usd: #809EDA;
+$jpy: #31319C;
+$eur: #31319C;
+$rules : #eee;
+
+.detail-container {
+    dd {
+        height: 15px;
+        margin: 6px 0 12px 24px;
+    }
+
+    dt {
+        border-bottom: 1px solid $rules;
+    }
+
+    .eur {
+        color: $eur;
+    }
+
+    .jpy {
+        color: $jpy;
+    }
+
+    .usd {
+        color: $usd;
+    }
+}

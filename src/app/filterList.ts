@@ -6,11 +6,11 @@ import { Config } from './config';
 })
 
 export class FilterList {
-	transform(items:any[], args:any):any[] {
+	transform(items: any[], args: any): any[] {
 		if (items.length === 0 || args.length < Config.minFilterInput) return items;
 
-		return items.filter((item) => {
-			return Object.keys(item).some((k) => {
+		return items.filter(item => {
+			return Object.keys(item).some(k => {
 				return Config.filterTypes.indexOf(k) > -1 ? new RegExp(args, 'i').test(item[k]) : false;
 			});
 		});

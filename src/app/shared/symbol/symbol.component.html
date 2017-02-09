@@ -1,0 +1,35 @@
+<span class="btn back"><span class="icon-arrow-left2"></span> <span class="text bold" routerLink="/" routerLinkActive="active">volver</span></span>
+<h1 class="component-title">Ficha</h1>
+<div id="graphContainer"></div>
+<div class="detail-container">
+    <dl>
+        <dt class="lato" *ngIf="symbol.name">Nombre</dt>
+        <dd *ngIf="symbol.name">{{symbol.name}}</dd>
+        <dt class="lato" *ngIf="currency.name">Divisa</dt>
+        <dd class="{{currency.name | lowercase}}" *ngIf="currency.name">{{currency.name}}</dd>
+        <dt class="lato" *ngIf="issuer">Emisor</dt>
+        <dd *ngIf="issuer">whatever</dd>
+        <dt class="lato" *ngIf="symbol.isin">ISIN</dt>
+        <dd *ngIf="symbol.isin">{{symbol.isin}}</dd>
+        <dt class="lato" *ngIf="region">Región</dt>
+        <dd *ngIf="region">{{region}}</dd>
+        <dt class="lato" *ngIf="risk_family">Familia de riesgo</dt>
+        <dd *ngIf="risk_family">{{risk_family}}</dd>
+        <dt class="lato" *ngIf="symbol.sector">Sector</dt>
+        <dd *ngIf="symbol.sector">{{sector}}</dd>
+    </dl>
+</div>
+<div class="form-container">
+    <h2>Añadir comentario</h2>
+    <form>
+      <div class="form-group">
+        <input type="hidden" class="form-control" required>
+      </div>
+
+      <div class="form-group">
+        <label for="content">Commentario</label>
+        <input type="text" class="form-control" required>
+      </div> 
+      <button type="submit" class="btn btn-default">Guardar</button>
+    </form>
+</div>

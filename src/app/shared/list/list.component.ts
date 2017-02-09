@@ -1,20 +1,20 @@
 import { Symbol } from '../symbol/symbol';
-import { SymbolListService } from '../symbol/list.service';
+import { SymbolService } from '../symbol/symbol.service';
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  providers: [SymbolListService]
+  providers: [SymbolService]
 })
 export class ListComponent implements OnInit {
   symbolList: Array<symbol> = [];
 
-  constructor(private SymbolListService: SymbolListService) { }
+  constructor(private SymbolService: SymbolService, private Router: Router) { }
 
   ngOnInit() {
-    this.SymbolListService
+    this.SymbolService
         .load()
         .subscribe(loadedsymbols => {
           loadedsymbols.forEach((symbolObject, index) => {
@@ -23,7 +23,7 @@ export class ListComponent implements OnInit {
         });
   }
 
-  onSelected() {
-    
+  onSelected(symbolId: String) {
+    this.Router.navigate(['symbol', {symbolId: symbolId}]);
   }
 }

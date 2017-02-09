@@ -5,20 +5,28 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ListComponent } from './shared/list/list.component';
+import { SymbolComponent } from './shared/symbol/symbol.component';
+import { CommentComponent } from './shared/comment/comment.component';
+import { ChartComponent } from './shared/chart/chart.component';
 import { FilterList } from './filterList';
+import { routing } from './app.routes';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
+    SymbolComponent,
+    CommentComponent,
+    ChartComponent,
     FilterList
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [],
-  bootstrap: [ListComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
