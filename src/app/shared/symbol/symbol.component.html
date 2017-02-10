@@ -19,17 +19,33 @@
         <dd *ngIf="symbol.sector">{{sector}}</dd>
     </dl>
 </div>
-<div class="form-container">
+<div class="form-container clearfix">
     <h2>Añadir comentario</h2>
-    <form>
-      <div class="form-group">
-        <input type="hidden" class="form-control" required>
-      </div>
-
+    <form #f="ngForm" (ngSubmit)="onSubmit(f, symbol.id)">
       <div class="form-group">
         <label for="content">Commentario</label>
-        <input type="text" class="form-control" required>
+        <textarea rows="4" class="form-control" name="content" id="content" [(ngModel)]="comment.content" required></textarea>
       </div> 
-      <button type="submit" class="btn btn-default">Guardar</button>
+      <button class="btn btn-default f-right">Guardar</button>
     </form>
+</div>
+<div class="comments-container">
+    <ul *ngIf="comments.length > 0">
+        <li *ngFor="let comment of comments" class="comment-card clickable" id="{{comment.id}}">
+            <div class="comment-content">
+                <p>{{comment.date | date:"medium"}}</p>
+                <input name="editableContent" id="editableContent" class="comment-field" [(ngModel)]="comment.content">
+            </div>
+            <div class="comment-controls">
+                <span (click)="editComment()" class="save">
+                    <span class="icon-bubble"></span>
+                    <span class="text">Guardar</span>
+                </span>
+                <span (click)="deleteComment(comment)" class="delete">
+                    <span class="icon-bin"></span>
+                    <span class="text">Borrar</span>
+                </span>
+            </div>
+        </li>
+    </ul>
 </div>

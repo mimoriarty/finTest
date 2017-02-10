@@ -1,7 +1,8 @@
 export class Comment {
     constructor(
-        public subject: string,
+        public id: number,
+        public subject: Number,
         public content: string,
-        public date: Date
+        public date: Number
     ){}
 }

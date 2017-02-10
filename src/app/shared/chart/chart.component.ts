@@ -6,6 +6,7 @@ declare var jQuery:any;
 
 @Component({
     selector: 'my-chart',
+	styleUrls: ['./chart.component.scss'],
     template: '<div style="width:60%" id="container"></div>'
 })
 export class ChartComponent implements OnInit {
